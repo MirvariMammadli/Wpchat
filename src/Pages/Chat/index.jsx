@@ -1,8 +1,10 @@
 import React from 'react'
 import './style.css'
+import { UserInfo } from '../../Components';
 import { SyncOutlined, MessageOutlined, MoreOutlined, AudioOutlined } from '@ant-design/icons';
 import { Row, Col, Layout, Image, Button, Input, Space } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
+
 
 const { Search } = Input;
 const suffix = (
@@ -16,9 +18,7 @@ const suffix = (
 
 
 const Index = () => {
-
     const onSearch = (value, _e, info) => {
-
         console.log(info?.source, value);
     }
 
@@ -36,8 +36,10 @@ const Index = () => {
                             <Button type="text" shape="circle" icon={<MoreOutlined />} />
                         </Col>
                     </Row>
-                    <Row>
-                        <Col span={24}>
+                    
+                </Header>
+                <Row>
+                        <Col span={24} style={{height:40}}>
                             <Search
                                 placeholder="input search text"
                                 onSearch={onSearch}
@@ -48,9 +50,8 @@ const Index = () => {
                         </Col>
                         <Col span={24}>archive</Col>
                     </Row>
-                </Header>
-                <Content>
-
+                <Content style={{height:'calc(100%-110px)', overflow: 'auto' , backgroundColor: 'yellow'}}>
+                    <UserInfo />
                 </Content>
             </Sider>
             <Layout>
@@ -58,7 +59,7 @@ const Index = () => {
 
                 </Header>
                 <Content>
-
+                    
                 </Content>
                 <Footer style={{ backgroundColor: 'gray' }}>
 
