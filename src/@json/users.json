@@ -1,0 +1,32 @@
+[
+    {
+        "photo": "https://picsum.photos/200",
+        "name": "Sencer Yerlan",
+        "message": "Salam",
+        "time": "12:09"
+    },
+    {
+        "photo": "https://picsu665m.photos/200",
+        "name": "Araz Yusubov",
+        "message": "Men univeritetden chixiram",
+        "time": "11:05"
+    },
+    {
+        "photo": "https://picsum.photos/200",
+        "name": "Jamaladdin",
+        "message": "SDPden size 100 bal",
+        "time": "15:45"
+    }, 
+    {
+        "photo": "https://picsum.photos/200",
+        "name": "ADA",
+        "message": "You passed every single class with A",
+        "time": "10:00"
+    },
+    {
+        "photo": "https://picsum.photos/200",
+        "name": "Vugar muellim",
+        "message": "Bu gun ders olmayacaq",
+        "time": "00:01"
+    }
+]

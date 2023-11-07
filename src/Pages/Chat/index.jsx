@@ -1,27 +1,13 @@
+import _users_ from '../../@json/users.json'
 import React from 'react'
 import './style.css'
-import { UserInfo } from '../../Components';
-import { SyncOutlined, MessageOutlined, MoreOutlined, AudioOutlined } from '@ant-design/icons';
-import { Row, Col, Layout, Image, Button, Input, Space } from 'antd';
+import { UserInfo, Search, Archive } from '../../Components';
+import { SyncOutlined, MessageOutlined, MoreOutlined} from '@ant-design/icons';
+import { Row, Col, Layout, Image, Button } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 
-const { Search } = Input;
-const suffix = (
-    <AudioOutlined
-        style={{
-            fontSize: 16,
-            color: '#1677ff',
-        }}
-    />
-);
-
-
 const Index = () => {
-    const onSearch = (value, _e, info) => {
-        console.log(info?.source, value);
-    }
-
     return (
         <Layout style={{ height: '100vh' }}>
             <Sider theme="light" width={350}>
@@ -36,22 +22,18 @@ const Index = () => {
                             <Button type="text" shape="circle" icon={<MoreOutlined />} />
                         </Col>
                     </Row>
-                    
                 </Header>
-                <Row>
-                        <Col span={24} style={{height:40}}>
-                            <Search
-                                placeholder="input search text"
-                                onSearch={onSearch}
-                                style={{
-                                    width: "100%",
-                                }}
-                            />
-                        </Col>
-                        <Col span={24}>archive</Col>
-                    </Row>
-                <Content style={{height:'calc(100%-110px)', overflow: 'auto' , backgroundColor: 'yellow'}}>
-                    <UserInfo />
+
+                <Search/>
+
+                <Content style={{ height: `calc(100% - 110px)`, overflowY: 'auto', backgroundColor: 'yellow' }}>
+                <Archive count={100}/>
+                    {
+                        _users_.map((value, index) => (
+                            <UserInfo key={index} photo={value.photo} name={value.name} message={value.message} time={value.time} />
+                        ))
+                    }
+
                 </Content>
             </Sider>
             <Layout>
@@ -59,7 +41,7 @@ const Index = () => {
 
                 </Header>
                 <Content>
-                    
+
                 </Content>
                 <Footer style={{ backgroundColor: 'gray' }}>
 
