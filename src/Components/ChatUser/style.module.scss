@@ -2,6 +2,20 @@
     font-size: 19px;
 }
 
-.messageText{
+.statusText{
     font-size: 14px;
+}
+
+.UserInfoChat{
+    height: 64px;
+    border-bottom: 1px solid gray;
+}
+
+.UserInfoChatText{
+    margin-top: 0;
+    padding:0;
+}
+
+.ant-layout-header{
+    line-height: 0 !important;
 }

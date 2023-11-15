@@ -1,0 +1,62 @@
+.MessageTextRight{
+    width: 70%;
+    min-width: 300px;
+    margin: 10px;
+    float: right;
+}
+
+.MessageTextRIght .emoji{
+    width: 50px;
+    text-align: right;
+}
+
+.MessageTextRight .text{
+    width: calc(100% - 60px);
+    margin-left: 10px;
+    text-align: right;
+    background-color: aqua;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+.MessageTextRight .text::after{
+    content: '';
+    background-color: aqua;
+    width: 20px;
+    height: 20px;
+    display: inline;
+    position: absolute;
+    transform: rotateZ(45deg) translateX(20px) translateY(-8px);
+}
+
+.MessageTextLeft{
+    width: 70%;
+    min-width: 300px;
+    margin: 10px;
+    float: left;
+}
+
+.MessageTextLeft .emoji{
+    width: 50px;
+    text-align: left;
+}
+
+.MessageTextLeft .text{
+    width: calc(100% - 60px);
+    margin-left: 10px;
+    text-align: left;
+    background-color: aqua;
+    padding: 10px;
+}
+
+.MessageTextLeft .text::before{
+    content: '';
+    background-color: aqua;
+    width: 20px;
+    height: 20px;
+    display: inline;
+    position: absolute;
+    transform: rotateZ(45deg) translateX(-15px) translateY(13px);
+}
+
+

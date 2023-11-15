@@ -1,7 +1,7 @@
 import _users_ from '../../@json/users.json'
 import React from 'react'
 import './style.css'
-import { UserInfo, Search, Archive } from '../../Components';
+import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText } from '../../Components';
 import { SyncOutlined, MessageOutlined, MoreOutlined} from '@ant-design/icons';
 import { Row, Col, Layout, Image, Button } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
@@ -37,14 +37,46 @@ const Index = () => {
                 </Content>
             </Sider>
             <Layout>
-                <Header style={{ backgroundColor: 'gray' }} >
-
+                <Header style={{ paddingInline: 5, backgroundColor: 'gray' , lineHeight:4, borderLeft: '1px solid red' }} >
+                    <ChatUser photo="https://picsum.photos/200" name="Sema Aliyeva" status="Online"/>
                 </Header>
-                <Content>
+
+                <Content style={{overflow:'auto'}}>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
 
                 </Content>
-                <Footer style={{ backgroundColor: 'gray' }}>
 
+                <Footer style={{ backgroundColor: 'gray' }}>
+                    <MessageInput/>
                 </Footer>
             </Layout>
         </Layout>

@@ -1,8 +1,8 @@
 import React from 'react'
 import './style.css'
-import { SyncOutlined, MessageOutlined, MoreOutlined, AudioOutlined, DownSquareOutlined } from '@ant-design/icons';
+import { AudioOutlined } from '@ant-design/icons';
 import { BsFilter } from 'react-icons/bs';
-import { Row, Col, Layout, Button, Space, Input } from 'antd';
+import { Row, Col, Button, Input } from 'antd';
 
 
 

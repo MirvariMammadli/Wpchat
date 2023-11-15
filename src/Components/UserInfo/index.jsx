@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Row, Col, Image, Typography } from 'antd';
-import style from './style.module.scss';
+import style from './style.module.scss'
 import profile from './profile.png';
 const { Title, Text } = Typography
 
@@ -11,12 +11,12 @@ const Index = (props) => {
         setSrc(profile)
     }
     return (
-        <Row className='UserInfo' width='100%' style={{ alignItems: 'center', display: "flex", height: '80px' }}>
+        <Row className={style.UserInfoChat} width='100%' style={{ alignItems: 'center', display: "flex", height: '80px' }}>
             <Col span={5}>
                 <Image width={50} height={50} preview={false} style={{ borderRadius: '50%' }} src={src} onError={onError}/>
             </Col>
             <Col span={14}>
-                <Row>
+                <Row className={style.UserInfoChatText}>
                     <Text className={style.headerText}>{props.name}</Text>
                 </Row>
                 <Row>
