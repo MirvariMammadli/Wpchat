@@ -35,7 +35,7 @@ const Index = (props) => {
                 <Button onClick={show} type="text" shape="circle" icon={<SearchOutlined />} />
                 <Button type="text" shape="circle" icon={<MoreOutlined />} />
             </Col>
-
+            {/* AM A BARBIE GIRL IN A BARBIE WORLDDDDDDDDD IT SO SASSY AND UGLIASTIC */}
             <Drawer
                 title="Basic Drawer"
                 placement="right"
