@@ -59,4 +59,7 @@
     transform: rotateZ(45deg) translateX(-15px) translateY(13px);
 }
 
+.emoji {
+    width: 30px;
+}
 

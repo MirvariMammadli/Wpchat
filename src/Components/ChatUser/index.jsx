@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Image, Typography, Button, Space } from 'antd';
+import { Row, Col, Image, Typography, Button, Space, Drawer, Layout } from 'antd';
 import { MoreOutlined, SearchOutlined } from '@ant-design/icons';
 import style from './style.module.scss';
 import profile from './profile.png';
@@ -12,6 +12,11 @@ const Index = (props) => {
     const onError = () => {
         setSrc(profile)
     }
+
+    const[modal, setModal]=useState(false)
+    const show=()=>setModal(true)
+    const hidden=()=>setModal(false)
+
     return (
         <Row className={style.UserInfoChat} style={{ width: '100%', display: "flex", height: '64px' }}>
             <Col>
@@ -27,10 +32,24 @@ const Index = (props) => {
             </Col>
             <Col style={{ width: 80, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }} >  
               <Space direction='horizontal' size={0} />
+                <Button onClick={show} type="text" shape="circle" icon={<SearchOutlined />} />
                 <Button type="text" shape="circle" icon={<MoreOutlined />} />
-                <Button type="text" shape="circle" icon={<SearchOutlined />} />
             </Col>
+
+            <Drawer
+                title="Basic Drawer"
+                placement="right"
+                mask={false}
+                closable={true}
+                open={modal}
+                onClose={hidden}
+            >
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Drawer>
         </Row>
+
     )
 }
 

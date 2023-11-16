@@ -2,12 +2,13 @@ import _users_ from '../../@json/users.json'
 import React from 'react'
 import './style.css'
 import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText } from '../../Components';
-import { SyncOutlined, MessageOutlined, MoreOutlined} from '@ant-design/icons';
+import { SyncOutlined, MessageOutlined, MoreOutlined } from '@ant-design/icons';
 import { Row, Col, Layout, Image, Button } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 
 const Index = () => {
+
     return (
         <Layout style={{ height: '100vh' }}>
             <Sider theme="light" width={350}>
@@ -24,10 +25,10 @@ const Index = () => {
                     </Row>
                 </Header>
 
-                <Search/>
+                <Search />
 
                 <Content style={{ height: `calc(100% - 110px)`, overflowY: 'auto', backgroundColor: 'yellow' }}>
-                <Archive count={100}/>
+                    <Archive count={100} />
                     {
                         _users_.map((value, index) => (
                             <UserInfo key={index} photo={value.photo} name={value.name} message={value.message} time={value.time} />
@@ -37,48 +38,49 @@ const Index = () => {
                 </Content>
             </Sider>
             <Layout>
-                <Header style={{ paddingInline: 5, backgroundColor: 'gray' , lineHeight:4, borderLeft: '1px solid red' }} >
-                    <ChatUser photo="https://picsum.photos/200" name="Sema Aliyeva" status="Online"/>
+                <Header style={{ paddingInline: 5, backgroundColor: 'gray', lineHeight: 4, borderLeft: '1px solid red' }} >
+                    <ChatUser photo="https://picsum.photos/200" name="Sema Aliyeva" status="Online" />
                 </Header>
 
-                <Content style={{overflow:'auto'}}>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={1} user={true}/>
-                    <MessageText message="salam necesen" time="14:00" status={2} user={false}/>
-                    <MessageText message="salam necesen" time="14:00" status={3} user={true}/>
+                <Content style={{ overflow: 'auto' }}>
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={1} user={true} />
+                    <MessageText message="salam necesen" time="14:00" status={2} user={false} />
+                    <MessageText message="salam necesen" time="14:00" status={3} user={true} />
 
                 </Content>
 
                 <Footer style={{ backgroundColor: 'gray' }}>
-                    <MessageInput/>
+                    <MessageInput />
                 </Footer>
             </Layout>
+            
         </Layout>
     )
 }

@@ -6,6 +6,7 @@ import { Row, Col, Typography, Image, Button, Space } from 'antd';
 const Index = ({ message, time, status, user }) => {
     const [smile, setSmile]=useState(false)
     const show=()=>setSmile(true)
+    const hidden=()=>setSmile(false)
     const Status = (status) => {
         switch (status) {
             case 1: return <CheckOutlined />
@@ -20,7 +21,7 @@ const Index = ({ message, time, status, user }) => {
                     <Col className='emoji'>
                        { smile && <Button shape="circle" icon={<SmileOutlined />} />}
                     </Col>
-                    <Col className='text'>
+                    <Col className='text' onMouseOver={show} onMouseOut={hidden}>
                         <Space style={{width:'100%'}} direction='vertical'>
                             <Typography.Text>{message}</Typography.Text>
                             <Typography.Text style={{float:'left'}} italic>{time} {Status(status)}</Typography.Text>
@@ -29,7 +30,7 @@ const Index = ({ message, time, status, user }) => {
                 </Row>
                 :
                 <Row align='middle' className='MessageTextLeft'>
-                    <Col className='text'>
+                    <Col className='text'  onMouseOver={show} onMouseOut={hidden}>
                         <Space style={{width:'100%'}} direction='vertical'>
                             <Typography.Text style={{marginLeft:10}}>{message}</Typography.Text>
                             <Typography.Text style={{float:'right'}} italic>{time} {Status(status)}</Typography.Text>
