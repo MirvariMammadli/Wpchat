@@ -11,7 +11,7 @@ const Index = (props) => {
         setSrc(profile)
     }
     return (
-        <Row className={style.UserInfoChat} width='100%' style={{ alignItems: 'center', display: "flex", height: '80px' }}>
+        <Row className={style.UserInfoChat} width='100%' style={{ alignItems: 'center', display: "flex", height: '80px', backgroundColor:'white' }}>
             <Col span={5}>
                 <Image width={50} height={50} preview={false} style={{ borderRadius: '50%' }} src={src} onError={onError}/>
             </Col>

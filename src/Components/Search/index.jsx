@@ -21,7 +21,7 @@ const Index = () => {
         console.log(info?.source, value);
     }
     return (
-        <Row width='100%' align='middle' style={{ height: 45, backgroundColor: 'pink' }}>
+        <Row width='100%' align='middle' style={{ height: 45 }}>
             <Col span={20}>
                 <Search
                     placeholder="input search text"
@@ -29,6 +29,7 @@ const Index = () => {
                     style={{
                         width: "100%",
                     }}
+                    // suffix={showIcon ? suffix:null}
                 />
             </Col>
             <Col span={4} style={{ textAlign: 'center' }}>

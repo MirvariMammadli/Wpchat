@@ -8,7 +8,7 @@
 
 .UserInfoChat{
     height: 64px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #dcddcd;
 }
 
 .UserInfoChatText{
@@ -22,8 +22,9 @@
 
 .Button{
     padding:0;
+    width:20px;
 }
 
-.Popover{
+.UserInfoChat  .Popover{
     padding:0 !important;
 }

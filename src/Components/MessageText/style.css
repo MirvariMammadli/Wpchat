@@ -14,14 +14,14 @@
     width: calc(100% - 60px);
     margin-left: 10px;
     text-align: right;
-    background-color: aqua;
+    background-color: #c4f5b0;
     padding: 10px;
     padding-right: 30px;
 }
 
 .MessageTextRight .text::after{
     content: '';
-    background-color: aqua;
+    background-color: #c4f5b0;
     width: 20px;
     height: 20px;
     display: inline;
@@ -45,13 +45,13 @@
     width: calc(100% - 60px);
     margin-left: 10px;
     text-align: left;
-    background-color: aqua;
+    background-color: white;
     padding: 10px;
 }
 
 .MessageTextLeft .text::before{
     content: '';
-    background-color: aqua;
+    background-color: white;
     width: 20px;
     height: 20px;
     display: inline;
