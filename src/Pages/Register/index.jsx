@@ -1,23 +1,35 @@
 import React from 'react'
 import './style.css'
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, Form, Input, Layout, Card } from 'antd';
+import { Button, Checkbox, Form, Input, Layout, Card, message } from 'antd';
 import axios from 'axios';
 
 
 const Index = () => {
 
+    const navigate = useNavigate();
+    const changePage = () => {
+        // Use navigate to navigate within the same window/tab
+        navigate(process.env.REACT_APP_LOGIN);
+    }
+
+    const [messageApi, contextHolder] = message.useMessage();
+    const [formDOM] = Form.useForm()
+
     const onFinish = (values) => {
-        console.log('Success:', values);
+
         const url = 'https://aticiliqkursu.az/v2.0.0//signup.php'
         const data = {
             ...values, photo: "profile.png"
         }
         axios.post(url, data).then(res => {
-            if(res.data.data.id){
-                alert("uğurlu")
-            } else{
-                alert("uğursuz")
+            if (res.status===200 && res.data.data?.id) {
+                messageApi.open({ type: 'success', content: 'İstifadəçi uğurla qeydiyyatdan keçdi', });
+                formDOM.resetFields();
+                setTimeout(()=>changePage(),1000)
+                
+            } else {
+                messageApi.open({ type: 'error', content: res.data.data, });
             }
         })
     };
@@ -26,13 +38,10 @@ const Index = () => {
         console.log('Failed:', errorInfo);
     };
 
-    const navigate = useNavigate();
-    const changePage = () => {
-        // Use navigate to navigate within the same window/tab
-        navigate('/login');
-    }
+    
     return (
         <Layout className='containerReg'>
+            {contextHolder}
             <Card className='form-cardReg'>
                 <Form
                     name="basic"
@@ -43,6 +52,7 @@ const Index = () => {
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
+                    form={formDOM}
                 >
                     <Form.Item
                         label="Username"
