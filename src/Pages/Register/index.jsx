@@ -18,7 +18,7 @@ const Index = () => {
 
     const onFinish = (values) => {
 
-        const url = 'https://aticiliqkursu.az/v2.0.0//signup.php'
+        const url = 'http://localhost/wp/v2.0.0/signup.php'
         const data = {
             ...values, photo: "profile.png"
         }

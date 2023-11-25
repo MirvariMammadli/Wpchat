@@ -19,15 +19,16 @@ const Index = () => {
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    const url = "https://aticiliqkursu.az/v2.0.0//signin.php"
-    const data = { ...values}
-    axios.post(url, values).then(res => {
-      if (res.data.data?.id) {
+    const url = "http://localhost/wp/v2.0.0/signin.php"
+    
+    axios.post(url, values).then(({data, status}) => {
+      if (status === 200 && data.data.id) {
+        localStorage.setItem("user",JSON.stringify(data.data))
         messageApi.open({ type: 'success', content: 'Əməliyat uğurla başa çatdı' });
         formDOM.resetFields();
         setTimeout(() => navigate(process.env.REACT_APP_CHAT), 1000);
       } else {
-        messageApi.open({ type: 'error', content: res.data.data });
+        messageApi.open({ type: 'error', content: data.data });
       }
     })
   };
@@ -61,7 +62,7 @@ const Index = () => {
                 message: 'Please input your username!',
               },
               {
-                type:"email",
+                type: "email",
                 message: 'Zəhmət olmasa doğru informasiya daxil edin'
               }
             ]}
@@ -78,7 +79,7 @@ const Index = () => {
                 message: 'Please input your password!',
               },
               {
-                min:7,
+                min: 7,
                 message: 'Parol 7 simvoldan az olmamalıdır'
               }
             ]}

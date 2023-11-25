@@ -12,7 +12,7 @@ const Index = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/chat" element={<Outlet />}>
-                    <Route index element={<Chat />} />
+                    <Route index element={<Chat fullName="ALI"/>} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
                 <Route path="/login" element={<Outlet />}>
@@ -29,7 +29,7 @@ const Index = () => {
                         status="404"
                         title="404"
                         subTitle="Sorry, the page you visited does not exist."
-                        extra={<Button type="primary" href={process.env.REACT_APP_CHAT}>Back Home</Button>}
+                        extra={<Button type="primary" href={process.env.REACT_APP_LOGIN}>Back Home</Button>}
                     />
                 } />
             </Routes>
