@@ -4,6 +4,7 @@ import Archive from './Archive'
 import ChatUser from './ChatUser'
 import MessageInput from './MessageInput'
 import MessageText from './MessageText'
+import OwnUser from './OwnUser'
 
 
 
@@ -13,5 +14,6 @@ export {
     Archive,
     ChatUser,
     MessageInput,
-    MessageText
+    MessageText,
+    OwnUser
 }

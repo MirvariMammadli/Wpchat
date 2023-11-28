@@ -12,7 +12,7 @@ const Index = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/chat" element={<Outlet />}>
-                    <Route index element={<Chat fullName="ALI"/>} />
+                    <Route index element={<Chat/>} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
                 <Route path="/login" element={<Outlet />}>

@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react'
 import './style.css'
 import EmojiPicker from 'emoji-picker-react';
-import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText } from '../../Components';
+import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText, OwnUser } from '../../Components';
 import { SyncOutlined, MessageOutlined, MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { Row, Col, Layout, Image, Button, Drawer, Modal, Typography } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 const _menuSider = ["New Group", "New Community", "Starred messages", "Select chats", "Settings", "Log out"];
 
-const Index = ({photo, fullName, email}) => {
+const Index = () => {
 
     const [modal, setModal] = useState(false)
     const [smile, setSmile] = useState(false)
@@ -26,16 +26,6 @@ const Index = ({photo, fullName, email}) => {
         else if (value == false) setLengthController(false)
     }
 
-    const [popoverSider, setsettingmodal] = useState(false);
-    const triggersetting = () => setsettingmodal(true);
-    const hidesetting = () => setsettingmodal(false);
-
-    const navigate = useNavigate();
-    const changePage = () => {
-        // Use navigate to navigate within the same window/tab
-        navigate('/login');
-    }
-
 
     return (
 
@@ -43,36 +33,13 @@ const Index = ({photo, fullName, email}) => {
             {/* Sider Layout */}
             <Col style={{ width: '20%' }}>
                 <Layout theme="light" style={{ height: '100%' }}>
-                    <Header style={{ backgroundColor: 'rgb(233, 237, 239)', paddingInline: 0 }}>
-                        <Row width='100%' align='middle' justify='space-between'>
-                            <Col span={8}>
-                                <Image width={50} height={50} preview={false} style={{ borderRadius: '50%' }} src={photo} />
-                            </Col>
-                            <Col span={10}>
-                                <Typography.Title level={5}>{fullName}</Typography.Title>
-                                <Typography.Title >{email}</Typography.Title>
-                            </Col>
-                            <Col style={{ display: 'flex', justifyContent: 'flex-end' }} span={6}>
-                                <Button type="text" shape="circle" icon={<SyncOutlined />} />
-                                <Button onClick={show} type="text" shape="circle" icon={<MessageOutlined />} />
-                                <Button onClick={triggersetting} type="text" shape="circle" icon={<MoreOutlined />} />
-                                <Modal
-                                    style={{ right: "29%", top: "5.5%" }}
-                                    width={'250px'}
-                                    height={'100px'}
-                                    closeIcon={false}
-                                    mask={false}
-                                    open={popoverSider}
-                                    onClose={hidesetting}
-                                    onCancel={hidesetting}
-                                    footer={false}
-                                >
-                                    {_menuSider.map((val, ind) => <Button style={{ textAlign: 'left' }} block key={ind} type="text" onClick={val === 'Log out' ? () => changePage() : hidesetting}>{val}</Button>)}
-                                </Modal>
-                            </Col>
-                        </Row>
-                    </Header>
 
+                    <OwnUser
+                        photo='https://picsum.photos/200/300'
+                        fullName="Ali"
+                        email="ddd@gamil.com"
+                    >
+                    </OwnUser>
                     <Search />
 
                     <Content style={{ height: `calc(100% - 110px)`, overflowY: 'auto', backgroundColor: '#e9edef' }}>
