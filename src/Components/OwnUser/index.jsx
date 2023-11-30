@@ -22,6 +22,7 @@ const Index = ({photo, fullName, email}) => {
     const navigate = useNavigate();
     const changePage = () => {
         // Use navigate to navigate within the same window/tab
+        localStorage.clear(); //if we dont clear the storage it will automatically navigate us to chat (bc our info has already been saved in local storage)
         navigate('/login');
     }
 
@@ -31,7 +32,7 @@ const Index = ({photo, fullName, email}) => {
                             <Col span={2}>
                                 <Image width={50} height={50} preview={false} style={{ borderRadius: '50%' }} src={photo} />
                             </Col>
-                            <Col className="user" span={13} style={{backgroundColor:'pink', height:60, flexDirection:'column', justifyContent:'center' ,paddingInline: 5, lineHeight: 1,}}>
+                            <Col className="user" span={12} style={{height:60, display:'flex', flexDirection:'column', justifyContent:'center'}}>
                                 <Typography.Title style={{ marginBottom: 0 }} level={5}>{fullName}</Typography.Title>
                                 <Typography.Title style={{ fontSize: '15px', marginBottom: 0 }} >{email}</Typography.Title>
                             </Col>

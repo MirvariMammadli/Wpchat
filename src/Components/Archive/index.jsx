@@ -7,7 +7,7 @@ const Index = ({count}) => {
     return (
         <Row width='100%' align='middle' style={{ height: 45,  borderBottom: '1px solid #dcdcdc'}}>
             <Col span={20}>
-                <Button style={{ textAlign: 'left' }} type='text' block icon={<DownSquareOutlined />}>Archive</Button>
+                <Button style={{ textAlign: 'left' }} type='text' block icon={<DownSquareOutlined />}>Total users</Button>
             </Col>
             <Col span={4} style={{ textAlign: 'center' }}> {count} </Col>
         </Row>

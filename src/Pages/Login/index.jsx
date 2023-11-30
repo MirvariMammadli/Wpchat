@@ -23,7 +23,7 @@ const Index = () => {
     
     axios.post(url, values).then(({data, status}) => {
       if (status === 200 && data.data.id) {
-        localStorage.setItem("user",JSON.stringify(data.data))
+        localStorage.setItem("user", JSON.stringify(data.data))
         messageApi.open({ type: 'success', content: 'Əməliyat uğurla başa çatdı' });
         formDOM.resetFields();
         setTimeout(() => navigate(process.env.REACT_APP_CHAT), 1000);

@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import { BrowserRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
 import { Button, Result } from 'antd';
-
+import { Authentication, IsLogin } from '../Layout';
 import Chat from "./Chat"
 import Login from "./Login"
 import Register from "./Register"
@@ -12,11 +12,11 @@ const Index = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/chat" element={<Outlet />}>
-                    <Route index element={<Chat/>} />
+                    <Route index element={<Authentication><Chat/></Authentication>} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
                 <Route path="/login" element={<Outlet />}>
-                    <Route index element={<Login />} />
+                    <Route index element={<IsLogin><Login /></IsLogin>} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
                 <Route path="/register" element={<Outlet />}>
