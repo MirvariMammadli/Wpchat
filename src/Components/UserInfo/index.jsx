@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ChatContext } from '../../Context';
 import { Row, Col, Image, Typography } from 'antd';
 import style from './style.module.scss'
 import profile from './profile.png';
