@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, memo } from 'react';
 import { ChatContext } from '../../Context';
 import { Row, Col, Image, Typography } from 'antd';
 import style from './style.module.scss'
@@ -6,6 +6,8 @@ import profile from './profile.png';
 const { Title, Text } = Typography
 
 const Index = (props) => {
+
+
     const [status, setStatus] = useState(false);
     const [src, setSrc] = useState(props.photo);
     const onError = () => {
@@ -22,6 +24,7 @@ const Index = (props) => {
         }
         // You can add more logic here if needed
     };
+
 
     return (
         <Row className={style.UserInfoChat} width='100%' style={{ alignItems: 'center', display: "flex", height: '80px', backgroundColor: status && "rgb(240,242,244)" }} onClick={handleClick} onMouseOver={Show} onMouseLeave={Hidden}>
@@ -43,4 +46,4 @@ const Index = (props) => {
     )
 }
 
-export default Index
+export default memo(Index);

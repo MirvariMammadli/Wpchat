@@ -1,6 +1,6 @@
 // import _users_ from '../../@json/users.json'
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, memo } from 'react'
 import './style.css'
 import axios from 'axios';
 import { ChatContext } from '../../Context';
@@ -14,9 +14,8 @@ const _menuSider = ["New Group", "New Community", "Starred messages", "Select ch
 
 
 const Index = () => {
-    
-    const {chat} = useContext(ChatContext);
-    console.log(chat);
+
+    const { chat } = useContext(ChatContext);
     const [photo, setPhoto] = useState('https://picsum.photos/200/300')
     const [fullName, setFullName] = useState()
     const [email, setEmail] = useState()
@@ -37,21 +36,21 @@ const Index = () => {
         setPhoto(`http://localhost/wp/v2.0.0/img/${photo}`)
     }
 
-    const getUsers=(pag= -1)=>{
+    const getUsers = (pag = -1) => {
         const url = "http://localhost/wp/v2.0.0/selectUser.php"
-        axios.get(url, {params: {pag}}).then(res=>{
-            const {data} = res.data;
+        axios.get(url, { params: { pag } }).then(res => {
+            const { data } = res.data;
             const [_count, _users] = data;
             setUsers(_users);
             setCount(_count);
         })
     }
 
-    const selectUser = (id)=>{
+    const selectUser = (id) => {
         chat.setId(id);
     }
     return (
-     <Col style={{ width: '20%' }}>
+        <Col style={{ width: '20%' }}>
             <Layout theme="light" style={{ height: '100%' }}>
 
                 <OwnUser
@@ -75,4 +74,4 @@ const Index = () => {
     )
 }
 
-export default Index
+export default memo(Index);

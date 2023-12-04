@@ -5,11 +5,11 @@ import './style.css'
 import axios from 'axios';
 import { ChatContext } from '../../Context';
 import EmojiPicker from 'emoji-picker-react';
-import { Sider, Content, Header } from '../../Layout';
+import { Sider, Content } from '../../Layout';
 import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText, OwnUser } from '../../Components';
 import { SyncOutlined, MessageOutlined, MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { Row, Col, Layout, Image, Button, Drawer, Modal, Typography } from 'antd';
-const { Footer } = Layout;
+const { Header, Footer } = Layout;
 
 const Index = () => {
     const [id, setId] = useState(null);
@@ -55,31 +55,11 @@ const Index = () => {
             setCount(_count);
         })
     }
-
-
-
-
     return (
-        <ChatContext.Provider value={{ chat: { id, setId } }}>
-            <Row gutter={0} style={{ height: '100vh' }}>
-                {/* Sider Layout */}
-                <Sider />
-                {/* Main Layout */}
-                <Col style={{ width: lengthController ? 'calc(80% - 378px)' : '80%' }}>
-                    <Layout>
-                        <Header />
-                        <Content />
-                        <Footer style={{ backgroundColor: 'rgb(233, 237, 239)', border: '1px solid #dcdcdc' }}>
-                            <MessageInput smile={smileShowHidden} />
-                        </Footer>
-                    </Layout>
-                </Col>
-
-
-
-            </Row>
-        </ChatContext.Provider>
+        <Header style={{ paddingInline: 5, backgroundColor: 'rgb(233, 237, 239)', lineHeight: 4, borderLeft: '1px solid #dcdcdc' }} >
+            <ChatUser photo="https://picsum.photos/200" name="Sema Aliyeva" status="Online" settingsState={settings} />
+        </Header>
     )
 }
 
-export default memo(Index);
+export default Index
