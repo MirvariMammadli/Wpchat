@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ChatContext } from '../../Context';
 import { Row, Col, Image, Typography, Button, Space, Drawer, Modal, Input } from 'antd';
 import { MoreOutlined, SearchOutlined, AudioOutlined } from '@ant-design/icons';
+import axios from 'axios';
 import style from './style.module.scss';
 import profile from './profile.png';
 
@@ -11,6 +13,7 @@ const _menu = ["Contact info", "Select messages", "Close chat", "Mute notificati
 const { Text } = Typography;
 
 const Index = (props) => {
+    const { chat } = useContext(ChatContext);
     const [src, setSrc] = useState(props.photo);
     const onError = () => {
         setSrc(profile);
@@ -31,8 +34,21 @@ const Index = (props) => {
     const hidesetting = () => setsettingmodal(false);
 
     const onSearch = (value, _e, info) => {
-        console.log(info?.source, value);
+        // console.log(info?.source, value);
     };
+
+    const [user, setUser] = useState(null)
+    const { id, setId } = chat;
+
+    useEffect(() => {
+        const url = "http://localhost/wp/v2.0.0/showUser.php"
+
+        axios.get(url, { params: { id } }).then(res => {
+            const { data } = res.data;
+            setUser(data);
+            setSrc(`http://localhost/wp/v2.0.0/img/${data?.photo}`);
+        })
+    }, [chat.id])
 
     return (
         <Row className={style.UserInfoChat} style={{ width: '100%', display: 'flex', height: '64px' }}>
@@ -41,10 +57,10 @@ const Index = (props) => {
             </Col>
             <Col style={{ width: 'calc(100% - 140px)' }}>
                 <Row className='UserInfoChatText'>
-                    <Text className={style.headerText}>{props.name}</Text>
+                    <Text className={style.headerText}>{user?.fullName}</Text>
                 </Row>
                 <Row className='UserInfoChatText'>
-                    <Text className={style.statusText}>{props.status}</Text>
+                    <Text className={style.statusText}>{user?.email}</Text>
                 </Row>
             </Col>
             <Col style={{ width: 80, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }} >

@@ -5,6 +5,7 @@ import ChatUser from './ChatUser'
 import MessageInput from './MessageInput'
 import MessageText from './MessageText'
 import OwnUser from './OwnUser'
+import NoChatPage from './NoChatPage'
 
 
 
@@ -15,5 +16,6 @@ export {
     ChatUser,
     MessageInput,
     MessageText,
-    OwnUser
+    OwnUser,
+    NoChatPage
 }

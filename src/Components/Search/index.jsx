@@ -18,7 +18,7 @@ const suffix = (
 
 const Index = () => {
     const onSearch = (value, _e, info) => {
-        console.log(info?.source, value);
+        // console.log(info?.source, value);
     }
     return (
         <Row width='100%' align='middle' style={{ height: 45 }}>

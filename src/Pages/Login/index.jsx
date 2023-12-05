@@ -18,7 +18,7 @@ const Index = () => {
   const [formDOM] = Form.useForm()
 
   const onFinish = (values) => {
-    console.log('Success:', values);
+    // console.log('Success:', values);
     const url = "http://localhost/wp/v2.0.0/signin.php"
     
     axios.post(url, values).then(({data, status}) => {
@@ -34,7 +34,7 @@ const Index = () => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
   };
 
 

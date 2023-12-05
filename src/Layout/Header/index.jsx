@@ -11,55 +11,22 @@ import { SyncOutlined, MessageOutlined, MoreOutlined, ArrowLeftOutlined } from '
 import { Row, Col, Layout, Image, Button, Drawer, Modal, Typography } from 'antd';
 const { Header, Footer } = Layout;
 
-const Index = () => {
-    const [id, setId] = useState(null);
-
-    const [modal, setModal] = useState(false)
-    const [smile, setSmile] = useState(false)
-    const [lengthController, setLengthController] = useState(false)
-
-
-    const smileShowHidden = () => setSmile(!smile)
-
+const Index = (props) => {
     const settings = (value) => {
-        if (value == true) setLengthController(true)
-        else if (value == false) setLengthController(false)
-    }
-
-    const [photo, setPhoto] = useState('https://picsum.photos/200/300')
-    const [fullName, setFullName] = useState()
-    const [email, setEmail] = useState()
-
-    const [users, setUsers] = useState([])
-    const [count, setCount] = useState(0)
-
-    useEffect(() => {
-        getOwner();
-        getUsers();
-    }, []);
-
-    const getOwner = () => {
-        const user = JSON.parse(localStorage.getItem('user')) || {}
-        const { fullName, email, photo } = user;
-        setFullName(fullName)
-        setEmail(email)
-        setPhoto(`http://localhost/wp/v2.0.0/img/${photo}`)
-    }
-
-    const getUsers = (pag = -1) => {
-        const url = "http://localhost/wp/v2.0.0/selectUser.php"
-        axios.get(url, { params: { pag } }).then(res => {
-            const { data } = res.data;
-            const [_count, _users] = data;
-            setUsers(_users);
-            setCount(_count);
-        })
-    }
+        if (value == true) {
+            props.setting(true)
+        }
+        else if (value == false) {
+            props.setting(false)
+        }
+    };
+    
+    
     return (
         <Header style={{ paddingInline: 5, backgroundColor: 'rgb(233, 237, 239)', lineHeight: 4, borderLeft: '1px solid #dcdcdc' }} >
-            <ChatUser photo="https://picsum.photos/200" name="Sema Aliyeva" status="Online" settingsState={settings} />
+            <ChatUser photo="https://picsum.photos/200" name="name" status="smt" settingsState={settings} />
         </Header>
     )
 }
 
-export default Index
+export default memo(Index)

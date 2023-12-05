@@ -22,6 +22,7 @@ const Index = () => {
 
     const [users, setUsers] = useState([])
     const [count, setCount] = useState(0)
+    const [ number, setNumber] = useState(1)
 
     useEffect(() => {
         getOwner();

@@ -1,30 +1,23 @@
-// import _users_ from '../../@json/users.json'
-import { useNavigate } from 'react-router-dom';
-import React, { useState, useEffect, useContext, memo } from 'react'
+import React, { useState, useEffect, useRef, memo } from 'react'
 import './style.css'
 import axios from 'axios';
 import { ChatContext } from '../../Context';
 import EmojiPicker from 'emoji-picker-react';
 import { Sider, Content, Header } from '../../Layout';
-import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText, OwnUser } from '../../Components';
-import { SyncOutlined, MessageOutlined, MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
-import { Row, Col, Layout, Image, Button, Drawer, Modal, Typography } from 'antd';
+import { MessageInput, NoChatPage } from '../../Components';
+import { Row, Col, Layout, Drawer } from 'antd';
 const { Footer } = Layout;
 
 const Index = () => {
     const [id, setId] = useState(null);
 
-    const [modal, setModal] = useState(false)
     const [smile, setSmile] = useState(false)
     const [lengthController, setLengthController] = useState(false)
+    const [messages, setMessages] = useState([])
 
 
     const smileShowHidden = () => setSmile(!smile)
 
-    const settings = (value) => {
-        if (value == true) setLengthController(true)
-        else if (value == false) setLengthController(false)
-    }
 
     const [photo, setPhoto] = useState('https://picsum.photos/200/300')
     const [fullName, setFullName] = useState()
@@ -34,7 +27,7 @@ const Index = () => {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        getOwner();
+        // getOwner();
         getUsers();
     }, []);
 
@@ -54,29 +47,69 @@ const Index = () => {
             setUsers(_users);
             setCount(_count);
         })
+
+    }
+    const settings = (value) => {
+        if (value == true) setLengthController(true)
+        else if (value == false) setLengthController(false)
     }
 
+    const footerHeight = document.querySelector('.ant-layout-footer')?.offsetHeight || 0;
 
+    const emojiPickerRef = useRef(null);
 
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            // Check if the click is outside the EmojiPicker Drawer
+            if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
+                // Close the EmojiPicker Drawer
+                setSmile(false);
+            }
+        };
+
+        // Attach the event listener to the document
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [setSmile]);
 
     return (
-        <ChatContext.Provider value={{ chat: { id, setId } }}>
+        <ChatContext.Provider value={{ chat: { id, setId }, Messages: [messages, setMessages] }}>
             <Row gutter={0} style={{ height: '100vh' }}>
                 {/* Sider Layout */}
                 <Sider />
                 {/* Main Layout */}
                 <Col style={{ width: lengthController ? 'calc(80% - 378px)' : '80%' }}>
-                    <Layout>
-                        <Header />
-                        <Content />
-                        <Footer style={{ backgroundColor: 'rgb(233, 237, 239)', border: '1px solid #dcdcdc' }}>
-                            <MessageInput smile={smileShowHidden} />
-                        </Footer>
-                    </Layout>
+                    {!id ?
+                        <NoChatPage />
+                        :
+                        <Layout>
+                            <Header setting={settings} />
+                            <Content />
+                            <Footer style={{ backgroundColor: 'rgb(233, 237, 239)', border: '1px solid #dcdcdc' }}>
+                                <MessageInput smile={smileShowHidden} />
+                                <Drawer
+                                    placement="bottom"
+                                    closable={false}
+                                    open={smile}
+                                    getContainer={false}
+                                    mask={false}
+                                    style={{ bottom: footerHeight }}
+                                    onClose={() => setSmile(false)}
+                                >
+                                    <div ref={emojiPickerRef}>
+                                        <EmojiPicker height='100%' width='100%' />
+                                    </div>
+
+                                </Drawer>
+
+                            </Footer>
+                        </Layout>
+                    }
                 </Col>
-
-
-
             </Row>
         </ChatContext.Provider>
     )

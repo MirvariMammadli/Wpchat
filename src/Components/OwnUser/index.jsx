@@ -10,7 +10,6 @@ const _menuSider = ["New Group", "New Community", "Starred messages", "Select ch
 
 const Index = ({ photo, fullName, email }) => {
     const { chat } = useContext(ChatContext);
-    console.log(chat)
     const [modal, setModal] = useState(false)
     const [smile, setSmile] = useState(false)
     const [lengthController, setLengthController] = useState(false)
