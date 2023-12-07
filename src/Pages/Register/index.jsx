@@ -23,11 +23,11 @@ const Index = () => {
             ...values, photo: "profile.png"
         }
         axios.post(url, data).then(res => {
-            if (res.status===200 && res.data.data?.id) {
+            if (res.status === 200 && res.data.data?.id) {
                 messageApi.open({ type: 'success', content: 'İstifadəçi uğurla qeydiyyatdan keçdi', });
                 formDOM.resetFields();
-                setTimeout(()=>changePage(),1000)
-                
+                setTimeout(() => changePage(), 1000)
+
             } else {
                 messageApi.open({ type: 'error', content: res.data.data, });
             }
@@ -38,7 +38,7 @@ const Index = () => {
         // console.log('Failed:', errorInfo);
     };
 
-    
+
     return (
         <Layout className='containerReg'>
             {contextHolder}
@@ -88,6 +88,10 @@ const Index = () => {
                                 required: true,
                                 message: 'Please input your password!',
                             },
+                            {
+                                min: 7,
+                                message: 'Parol 7 simvoldan az olmamalıdır'
+                            }
                         ]}
                     >
                         <Input.Password />
@@ -121,7 +125,7 @@ const Index = () => {
                     <Form.Item
                         wrapperCol={{ offset: 8, span: 16, }}
                     >
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="button" >
                             Upload a Photo
                         </Button>
                     </Form.Item>

@@ -51,7 +51,7 @@ const Index = () => {
         chat.setId(id);
     }
     return (
-        <Col style={{ width: '20%' }}>
+        <Col style={{ width: '20%', height: '100%' }}>
             <Layout theme="light" style={{ height: '100%' }}>
 
                 <OwnUser

@@ -82,14 +82,14 @@ const Index = () => {
                 {/* Sider Layout */}
                 <Sider />
                 {/* Main Layout */}
-                <Col style={{ width: lengthController ? 'calc(80% - 378px)' : '80%' }}>
+                <Col style={{ width: lengthController ? 'calc(80% - 378px)' : '80%'}}>
                     {!id ?
                         <NoChatPage />
                         :
                         <Layout>
-                            <Header setting={settings} />
+                            <Header setting={settings}/>
                             <Content />
-                            <Footer style={{ backgroundColor: 'rgb(233, 237, 239)', border: '1px solid #dcdcdc' }}>
+                            <Footer style={{ backgroundColor: 'rgb(233, 237, 239)', border: '1px solid #dcdcdc', height: '8vh' }}>
                                 <MessageInput smile={smileShowHidden} />
                                 <Drawer
                                     placement="bottom"

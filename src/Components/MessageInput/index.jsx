@@ -64,7 +64,7 @@ const Index = ({ smile }) => {
                     <Button type="text" icon={<PaperClipOutlined style={{ fontSize: 20 }} />} />
                 </Col>
                 <Col flex="auto">
-                    <FormItem name="message"><Input size='large' placeholder='message...' /></FormItem>
+                    <FormItem name="message"><Input size='large' placeholder="maxLength is 255" maxLength={255} /></FormItem>
                 </Col>
                 <Col style={{ width: '40px', height: '55px' }}>
                     <Button htmlType="submit" icon={<RightOutlined style={{ fontSize: 20 }} />} />
