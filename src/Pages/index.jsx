@@ -11,15 +11,16 @@ const Index = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/chat" element={<Outlet />}>
+                <Route path="Wpchat" element={<Outlet />}>
+                <Route path="/chat" element={<Chat />}>
                     <Route index element={<Authentication><Chat/></Authentication>} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
-                <Route path="/login" element={<Outlet />}>
+                <Route path="/login" element={<Login />}>
                     <Route index element={<IsLogin><Login /></IsLogin>} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
-                <Route path="/register" element={<Outlet />}>
+                <Route path="/register" element={<Register />}>
                     <Route index element={<Register />} />
                     <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
                 </Route>
@@ -32,6 +33,7 @@ const Index = () => {
                         extra={<Button type="primary" href={process.env.REACT_APP_LOGIN}>Back Home</Button>}
                     />
                 } />
+                </Route>
             </Routes>
         </BrowserRouter>
     )
