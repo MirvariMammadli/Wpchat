@@ -11,28 +11,33 @@ const Index = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="Wpchat" element={<Outlet />}>
-                <Route path="/chat" element={<Chat />}>
-                    <Route index element={<Authentication><Chat/></Authentication>} />
-                    <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
-                </Route>
-                <Route path="/login" element={<Login />}>
+                <Route path="/" element={<Outlet />}>
                     <Route index element={<IsLogin><Login /></IsLogin>} />
-                    <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
-                </Route>
-                <Route path="/register" element={<Register />}>
-                    <Route index element={<Register />} />
-                    <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
-                </Route>
-                <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />}/>
-                <Route path="404" element={
-                    <Result
-                        status="404"
-                        title="404"
-                        subTitle="Sorry, the page you visited does not exist."
-                        extra={<Button type="primary" href={process.env.REACT_APP_LOGIN}>Back Home</Button>}
-                    />
-                } />
+                    <Route path="wpchat" element={<Outlet />}>
+
+                        <Route path="chat" element={<Chat />}>
+                            <Route index element={<Authentication><Chat /></Authentication>} />
+                            <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />} />
+                        </Route>
+
+                        <Route path="login" element={<Login />}>
+                            <Route index element={<IsLogin><Login /></IsLogin>} />
+                            <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />} />
+                        </Route>
+                        <Route path="register" element={<Register />}>
+                            <Route index element={<Register />} />
+                            <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />} />
+                        </Route>
+                        <Route path='*' element={<Navigate to={process.env.REACT_APP_404} />} />
+                        <Route path="404" element={
+                            <Result
+                                status="404"
+                                title="404"
+                                subTitle="Sorry, the page you visited does not exist."
+                                extra={<Button type="primary" href={process.env.REACT_APP_LOGIN}>Back Home</Button>}
+                            />
+                        } />
+                    </Route>
                 </Route>
             </Routes>
         </BrowserRouter>

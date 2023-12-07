@@ -14,7 +14,7 @@
 
 describe('Login test with Cypress', () => {
   it('Login Scenario', () => {
-    const testEmail = 'taar@mailinator.com';
+    const testEmail = 'tajar@mailinator.com';
     const testPassword = 'Pa$$w0rd!';
 
     // Make API request with dynamic values
