@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './style.css'
-import { CheckOutlined, DownOutlined, SmileOutlined } from '@ant-design/icons';
-import { Row, Col, Typography, Image, Button, Space } from 'antd';
+import { CheckOutlined, SmileOutlined } from '@ant-design/icons';
+import { Row, Col, Typography, Button, Space } from 'antd';
 
 const Index = ({ message, time, status, user }) => {
     const [smile, setSmile]=useState(false)

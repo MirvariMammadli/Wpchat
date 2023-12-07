@@ -5,14 +5,12 @@ import './style.css'
 import { ChatContext } from '../../Context';
 import { SyncOutlined, MessageOutlined, MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { Row, Col, Layout, Image, Button, Drawer, Modal, Typography } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+const { Header} = Layout;
 const _menuSider = ["New Group", "New Community", "Starred messages", "Select chats", "Settings", "Log out"];
 
 const Index = ({ photo, fullName, email }) => {
-    const { chat } = useContext(ChatContext);
+    
     const [modal, setModal] = useState(false)
-    const [smile, setSmile] = useState(false)
-    const [lengthController, setLengthController] = useState(false)
 
     const show = () => setModal(true)
     const hidden = () => setModal(false)

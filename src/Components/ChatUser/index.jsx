@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ChatContext } from '../../Context';
 import { Row, Col, Image, Typography, Button, Space, Drawer, Modal, Input } from 'antd';
-import { MoreOutlined, SearchOutlined, AudioOutlined } from '@ant-design/icons';
+import { MoreOutlined, SearchOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import style from './style.module.scss';
 import profile from './profile.png';

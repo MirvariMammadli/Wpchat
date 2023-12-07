@@ -1,16 +1,10 @@
-// import _users_ from '../../@json/users.json'
-import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useContext, memo } from 'react'
 import './style.css'
 import axios from 'axios';
 import { ChatContext } from '../../Context';
-import EmojiPicker from 'emoji-picker-react';
-import { UserInfo, Search, Archive, ChatUser, MessageInput, MessageText, OwnUser } from '../../Components';
-import { SyncOutlined, MessageOutlined, MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
-import { Row, Col, Layout, Image, Button, Drawer, Modal, Typography } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
-
-const _menuSider = ["New Group", "New Community", "Starred messages", "Select chats", "Settings", "Log out"];
+import { UserInfo, Search, Archive, OwnUser } from '../../Components';
+import { Row, Col, Layout} from 'antd';
+const { Content } = Layout;
 
 
 const Index = () => {
@@ -64,7 +58,7 @@ const Index = () => {
                 </OwnUser>
                 <Search />
 
-                <Content style={{ height: `calc(100% - 110px)`, overflowY: 'auto', backgroundColor: '#e9edef' }}>
+                <Content style={{ height: `calc(100% - 110px)`, overflowY: 'auto', backgroundColor: '#e9edef'}}>
                     <Archive count={count} />
                     {users.map((value, index) => (
                         <UserInfo key={index} photo={"http://localhost/wp/v2.0.0/img/" + value.photo} name={value.fullName} message={value.email} time={value.id} onClick={() => selectUser(value.id)} />

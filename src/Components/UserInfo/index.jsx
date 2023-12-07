@@ -29,7 +29,7 @@ const Index = (props) => {
     return (
         <Row className={style.UserInfoChat} width='100%' style={{ alignItems: 'center', display: "flex", height: '80px', backgroundColor: status && "rgb(240,242,244)" }} onClick={handleClick} onMouseOver={Show} onMouseLeave={Hidden}>
             <Col span={5}>
-                <Image width={50} height={50} preview={false} style={{ borderRadius: '50%' }} src={src} onError={onError} />
+                <Image preview={false} style={{ width: '70%', height: 'auto', borderRadius: '50%' }} src={src} onError={onError} />
             </Col>
             <Col span={17}>
                 <Row className={style.UserInfoChatText}>

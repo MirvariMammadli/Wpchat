@@ -22,6 +22,7 @@ const Index = () => {
     const url = "http://localhost/wp/v2.0.0/signin.php"
     
     axios.post(url, values).then(({data, status}) => {
+      console.log(data, status)
       if (status === 200 && data.data.id) {
         localStorage.setItem("user", JSON.stringify(data.data))
         messageApi.open({ type: 'success', content: 'Əməliyat uğurla başa çatdı' });
