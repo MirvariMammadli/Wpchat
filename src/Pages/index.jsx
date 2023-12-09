@@ -13,7 +13,7 @@ const Index = () => {
             <Routes>
                 <Route path="/" element={<Outlet />}>
                     <Route index element={<IsLogin><Login /></IsLogin>} />
-                    <Route path="wpchat" element={<Outlet />}>
+                    <Route path="Wpchat" element={<Outlet />}>
 
                         <Route path="chat" element={<Chat />}>
                             <Route index element={<Authentication><Chat /></Authentication>} />
