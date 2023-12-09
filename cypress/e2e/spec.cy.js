@@ -30,7 +30,7 @@ describe('Login test with Cypress', () => {
         cy.log('User does not exist. Test passes as expected.');
       } else {
         // Perform actions after successful authentication
-        cy.visit('/login');
+        cy.visit('http://localhost:3000/Wpchat/login');
 
         // Check if the login page is loaded successfully
         cy.url().should('include', '/login');
