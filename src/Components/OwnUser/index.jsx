@@ -23,7 +23,7 @@ const Index = ({ photo, fullName, email }) => {
     const changePage = () => {
         // Use navigate to navigate within the same window/tab
         localStorage.clear(); //if we dont clear the storage it will automatically navigate us to chat (bc our info has already been saved in local storage)
-        navigate('/login');
+        navigate(process.env.REACT_APP_REGISTER);
     }
 
     return (

@@ -11,7 +11,7 @@ const Index = () => {
   const navigate = useNavigate();
   const changePage = () => {
     // Use navigate to navigate within the same window/tab
-    navigate(process.env.REACT_APP_REGISTER);
+    navigate(process.env.REACT_APP_LOGIN);
   }
 
   const [messageApi, contextHolder] = message.useMessage();
